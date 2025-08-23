@@ -26,7 +26,7 @@ public class CameraController : MonoBehaviour
         //Follow Player
         transform.position = new Vector3(player.position.x + lookAhead, transform.position.y, transform.position.z);
         lookAhead = Lerp(lookAhead, aheadDistance * MathF.Sign(player.localScale.x), cameraSpeed * Time.deltaTime); // you can use Mathf.Lerp() instead with lower f and not upper F
-        
+
     }
 
     // code source of Mathf.Lerp
@@ -39,5 +39,6 @@ public class CameraController : MonoBehaviour
     {
         currentPosX = _newRoom.position.x + 1;
     }
+    
 
 }
