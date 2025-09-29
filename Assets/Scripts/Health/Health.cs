@@ -51,7 +51,7 @@ public class Health : MonoBehaviour
     // IEnumerator == asynchrone
     private IEnumerator Invunerability()
     {
-        Physics2D.IgnoreLayerCollision(10, 11, true); // ignore la colistion entre le player et les ennemies via leur layer
+        Physics2D.IgnoreLayerCollision(10, 11, true); // ignore la colistion entre le player et les ennemies via leurs layers
         for (int i = 0; i < numberFlash; i++)
         {
             spriteRend.color = new Color(1, 0, 0, 0.5f);
