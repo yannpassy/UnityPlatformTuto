@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class MeleeEnnemy : MonoBehaviour
 {
     [SerializeField] private float attackCooldown;
     [SerializeField] private float range;
@@ -16,10 +16,12 @@ public class NewBehaviourScript : MonoBehaviour
     //reference
     private Animator anim;
     private Health playerHealth;
+    private EnnemyPatrol ennemyPatrol;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        ennemyPatrol = GetComponentInParent<EnnemyPatrol>();
     }
 
     private void Update()
@@ -31,10 +33,13 @@ public class NewBehaviourScript : MonoBehaviour
             if (cooldownTimer >= attackCooldown)
             {
                 cooldownTimer = 0;
-                anim.SetTrigger("meleeAttack");
+                anim.SetTrigger("meleeAttack"); // launch attack and apply damage
 
             }
         }
+
+        if (ennemyPatrol != null)
+            ennemyPatrol.enabled = !IsPlayerInSight(); // if the ennemy don't see the player, it keep patrolling
 
     }
 
