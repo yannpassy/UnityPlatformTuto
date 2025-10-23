@@ -44,6 +44,10 @@ public class Projectile : MonoBehaviour
         hit = true;
         boxCollider.enabled = false;
         anim.SetTrigger("explode");
+
+        if (collision.CompareTag("Ennemies"))
+            collision.GetComponent<Health>().TakeDamage(1);
+            
     }
 
     public void LaunchFireball(float _direction)

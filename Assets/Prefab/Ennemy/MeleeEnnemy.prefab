@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8640421317836260369}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.10864115, y: 0.8660288, z: 0.06191994}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3797b3e029c1e004cb0d43d541a378cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3
+  maxHealth: 2
   iFrameDuration: 0
   numberFlash: 0
 --- !u!114 &469788579014512802
@@ -183,8 +183,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackCooldown: 1
   range: 1.98
-  colliderRange: 0.48
   damage: 1
+  colliderRange: 0.48
   boxCollider: {fileID: 4863773808712524887}
   playerLayer:
     serializedVersion: 2
