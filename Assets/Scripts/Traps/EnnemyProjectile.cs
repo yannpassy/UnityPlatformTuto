@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.Dependencies.NCalc;
@@ -9,20 +10,31 @@ public class EnnemyProjectile : EnnemyDamage // inheritence
     [SerializeField] private float speed;
     [SerializeField] private float resetTime;
     private float projectileLifeTime;
+    private BoxCollider2D collider;
     private Animator anim;
+    private bool hit;
 
-    private void Start() 
+    private void Start()
     {
+        hit = false;
         anim = GetComponent<Animator>();
+        collider = GetComponent<BoxCollider2D>();
     }
     public void LaunchProjectile()
     {
-        projectileLifeTime = 0;
+
         gameObject.SetActive(true);
+        hit = false;
+        collider.enabled = true;
+        projectileLifeTime = 0;
     }
 
     private void Update()
     {
+        if (hit) // stop the movement of the pojectile when hit
+        {
+            return;
+        }
         // move the arrow
         float movementSpeed = speed * Time.deltaTime;
         transform.Translate(movementSpeed, 0, 0);
@@ -36,7 +48,10 @@ public class EnnemyProjectile : EnnemyDamage // inheritence
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        hit = true;
         base.OnTriggerEnter2D(collision);
+        
+        collider.enabled = false;
 
         if (anim != null)
         {
