@@ -8,10 +8,16 @@ public class EnnemyProjectile : EnnemyDamage // inheritence
     [Header("Projectile")]
     [SerializeField] private float speed;
     [SerializeField] private float resetTime;
-    private float arrowLifeTime;
-    public void ActivateArrow()
+    private float projectileLifeTime;
+    private Animator anim;
+
+    private void Start() 
     {
-        arrowLifeTime = 0;
+        anim = GetComponent<Animator>();
+    }
+    public void LaunchProjectile()
+    {
+        projectileLifeTime = 0;
         gameObject.SetActive(true);
     }
 
@@ -21,16 +27,32 @@ public class EnnemyProjectile : EnnemyDamage // inheritence
         float movementSpeed = speed * Time.deltaTime;
         transform.Translate(movementSpeed, 0, 0);
 
-        arrowLifeTime += Time.deltaTime;
-        if (arrowLifeTime > resetTime)
+        projectileLifeTime += Time.deltaTime;
+        if (projectileLifeTime > resetTime)
             gameObject.SetActive(false);
 
     }
 
-    
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         base.OnTriggerEnter2D(collision);
+
+        if (anim != null)
+        {
+            anim.SetTrigger("explode"); // fireball projectile
+        }
+        else
+        {
+            Deactivate(); // arrow projectile
+        }
+
+        
+    }
+    
+    // also call at the end of the animation explode
+    private void Deactivate()
+    {
         gameObject.SetActive(false);
     }
 }

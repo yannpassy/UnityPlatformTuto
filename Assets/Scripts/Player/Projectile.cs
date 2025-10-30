@@ -22,7 +22,7 @@ public class Projectile : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
+    // Update is called once per frame (not fixed time per frame)
     private void Update()
     {
         if (hit)
