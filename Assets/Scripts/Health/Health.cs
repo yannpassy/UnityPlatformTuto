@@ -10,11 +10,15 @@ public class Health : MonoBehaviour
     public float currentHealth { get; private set; } // used in HealthBar, we can get the value from everywhere but cannot set it outside this class
     private Animator anim;
     private bool dead;
+    private bool invunerable;
 
     [Header("iFrame")]
     [SerializeField] private float iFrameDuration;
     [SerializeField] private float numberFlash;
     private SpriteRenderer spriteRend;
+
+    [Header ("Component")]
+    [SerializeField] private Behaviour[] components;
     private void Awake()
     {
         currentHealth = maxHealth;
@@ -24,6 +28,7 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float _damage)
     {
+        if(invunerable) return;
         currentHealth = Mathf.Clamp(currentHealth - _damage, 0, maxHealth);
 
         if (currentHealth > 0)
@@ -38,15 +43,21 @@ public class Health : MonoBehaviour
                 anim.SetTrigger("die");
 
                 // Player
-                if (GetComponent<PlayerMovement>() != null)
-                    GetComponent<PlayerMovement>().enabled = false;
+                // if (GetComponent<PlayerMovement>() != null)
+                //     GetComponent<PlayerMovement>().enabled = false;
 
-                // Ennemy
-                if (GetComponentInParent<EnnemyPatrol>() != null)
-                    GetComponentInParent<EnnemyPatrol>().enabled = false;
+                // // Ennemy
+                // if (GetComponentInParent<EnnemyPatrol>() != null)
+                //     GetComponentInParent<EnnemyPatrol>().enabled = false;
 
-                if (GetComponent<MeleeEnnemy>() != null)    
-                    GetComponent<MeleeEnnemy>().enabled = false;
+                // if (GetComponent<MeleeEnnemy>() != null)    
+                //     GetComponent<MeleeEnnemy>().enabled = false;
+
+                // Deactivate all atached components class
+                foreach(Behaviour component in components)
+                {
+                    component.enabled =false;
+                }
 
                 dead = true;
             }
@@ -62,6 +73,7 @@ public class Health : MonoBehaviour
     // IEnumerator == asynchrone
     private IEnumerator Invunerability()
     {
+        invunerable = true;
         Physics2D.IgnoreLayerCollision(10, 11, true); // ignore la colistion entre le player et les ennemies via leurs layers
         for (int i = 0; i < numberFlash; i++)
         {
@@ -72,6 +84,7 @@ public class Health : MonoBehaviour
         }
 
         Physics2D.IgnoreLayerCollision(10, 11, false); // reactive la colision
+        invunerable = false;
 
     }
 
@@ -87,5 +100,10 @@ public class Health : MonoBehaviour
         {
             GainLife(1);
         }
+    }
+
+    private void Deactivate()
+    {
+        gameObject.SetActive(false);
     }
 }
