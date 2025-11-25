@@ -8,6 +8,7 @@ public class RangedEnnemy : MonoBehaviour
     [SerializeField] private float attackCooldown;
     [SerializeField] private float range;
     [SerializeField] private int damage;
+    [SerializeField]private AudioClip fireBallSound;
 
     [Header("Ranged Attack")]
     [SerializeField] private Transform firepoint;
@@ -68,6 +69,7 @@ public class RangedEnnemy : MonoBehaviour
     
     private void rangedAttack() // Called during rangedAttack Animation
     {
+        SoundManager.instance.PlaySound(fireBallSound);
         cooldownTimer = 0;
         //shoot projectile
         fireballs[FindFireball()].transform.position = firepoint.position;

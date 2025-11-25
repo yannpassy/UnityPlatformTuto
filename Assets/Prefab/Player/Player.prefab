@@ -240,6 +240,7 @@ MonoBehaviour:
   - {fileID: 277951780663487508}
   - {fileID: 4131259364994890887}
   - {fileID: 4799458555915823725}
+  fireBallSound: {fileID: 0}
 --- !u!114 &1838470231403023818
 MonoBehaviour:
   m_ObjectHideFlags: 0

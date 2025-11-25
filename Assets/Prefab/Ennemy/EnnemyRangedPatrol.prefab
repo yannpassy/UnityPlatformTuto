@@ -166,6 +166,10 @@ PrefabInstance:
       propertyPath: components.Array.data[1]
       value: 
       objectReference: {fileID: 6808035565339477279}
+    - target: {fileID: 1165894461084048148, guid: 151b37ead0f040c44b453ac649d6d97a, type: 3}
+      propertyPath: fireBallSound
+      value: 
+      objectReference: {fileID: 8300000, guid: f31a9e0d75304f440a08035bc1b03bc7, type: 3}
     - target: {fileID: 1370051198454304005, guid: 151b37ead0f040c44b453ac649d6d97a, type: 3}
       propertyPath: m_Name
       value: RangedEnnemy
