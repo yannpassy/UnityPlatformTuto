@@ -204,6 +204,8 @@ MonoBehaviour:
   iFrameDuration: 0
   numberFlash: 0
   components: []
+  deathSound: {fileID: 8300000, guid: a50b5421650030741b06bbaa981ae9b6, type: 3}
+  hurtSound: {fileID: 8300000, guid: 578afd7f296c2e648926f8e57eada205, type: 3}
 --- !u!114 &1165894461084048148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,6 +221,7 @@ MonoBehaviour:
   attackCooldown: 2
   range: 10
   damage: 1
+  fireBallSound: {fileID: 0}
   firepoint: {fileID: 8672753171348304171}
   fireballs:
   - {fileID: 4745146324458969401}

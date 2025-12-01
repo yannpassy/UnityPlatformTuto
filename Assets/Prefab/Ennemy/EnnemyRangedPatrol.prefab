@@ -47,7 +47,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5167939028358284845
 Transform:
   m_ObjectHideFlags: 0
@@ -154,6 +154,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4068890421609032869}
     m_Modifications:
+    - target: {fileID: 251073252936638507, guid: 151b37ead0f040c44b453ac649d6d97a, type: 3}
+      propertyPath: deathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: a50b5421650030741b06bbaa981ae9b6, type: 3}
     - target: {fileID: 251073252936638507, guid: 151b37ead0f040c44b453ac649d6d97a, type: 3}
       propertyPath: components.Array.size
       value: 2

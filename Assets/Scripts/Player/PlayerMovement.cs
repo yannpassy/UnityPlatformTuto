@@ -12,6 +12,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpPower;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask wallLayer;
+
+    [Header ("Sound")]
+    [SerializeField] private AudioClip jumpSound;
     private Animator anim;
     private BoxCollider2D boxCollider;
     private float wallJumpCooldown;
@@ -55,7 +58,14 @@ public class PlayerMovement : MonoBehaviour
 
             // jump
             if (Input.GetKey(KeyCode.Space))
+            {
                 Jump();
+                if (Input.GetKeyDown(KeyCode.Space) && (isGrounded() || onWall()))
+                {
+                    SoundManager.instance.PlaySound(jumpSound);   
+                }
+            }
+                
         }
         else
             wallJumpCooldown += Time.deltaTime;

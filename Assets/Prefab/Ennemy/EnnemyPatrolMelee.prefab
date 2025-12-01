@@ -122,6 +122,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5986764760075842672}
     m_Modifications:
+    - target: {fileID: 469788579014512802, guid: 43906ae5494c60d49af046d9e30b26b5, type: 3}
+      propertyPath: attackSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 45bc56387f62ddf49bc4f9346593b634, type: 3}
+    - target: {fileID: 3840746689057071619, guid: 43906ae5494c60d49af046d9e30b26b5, type: 3}
+      propertyPath: deathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: a50b5421650030741b06bbaa981ae9b6, type: 3}
     - target: {fileID: 3924709577952503660, guid: 43906ae5494c60d49af046d9e30b26b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.10864115
