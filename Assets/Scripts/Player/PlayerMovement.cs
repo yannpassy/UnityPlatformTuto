@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class PlayerMovement : MonoBehaviour
@@ -69,6 +70,9 @@ public class PlayerMovement : MonoBehaviour
         }
         else
             wallJumpCooldown += Time.deltaTime;
+
+        // TO DELETE
+        changeScene();
     }
 
     private void Jump()
@@ -123,6 +127,20 @@ public class PlayerMovement : MonoBehaviour
     public bool canAttack()
     {
         return !isMoving() && isGrounded() && !onWall();
+    }
+
+
+    // for testing , allow to change scene
+    private void changeScene()
+    {
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            SceneManager.LoadScene(1);
+        }
+        else if (Input.GetKeyDown(KeyCode.H))
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 
 }

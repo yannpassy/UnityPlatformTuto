@@ -9,6 +9,9 @@ public class SpikeHead : EnnemyDamage
     [SerializeField] private float range;
     [SerializeField] private float checkDelay;
     [SerializeField] private LayerMask playerLayer;
+
+    [Header ("SFX")]
+    [SerializeField] private AudioClip impactSound;
     private float checkTimer;
     private Vector3 destination;
     private bool attacking;
@@ -65,6 +68,7 @@ public class SpikeHead : EnnemyDamage
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        SoundManager.instance.PlaySound(impactSound);
         base.OnTriggerEnter2D(collision);
         //stop Spikehead when it hit something
         Stop();
