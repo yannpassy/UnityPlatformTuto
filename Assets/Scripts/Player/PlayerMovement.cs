@@ -44,7 +44,34 @@ public class PlayerMovement : MonoBehaviour
         anim.SetBool("run", isMoving());
         anim.SetBool("grounded", isGrounded());
 
+        
+        //FormerJumpLogic();
 
+        //Jump
+        if(Input.GetKeyDown(KeyCode.Space))
+            Jump();
+
+        //Adjustable jump height, when you release the scpace button, the jump get less higher
+        if(Input.GetKeyUp(KeyCode.Space) && body.velocity.y > 0)
+            body.velocity = new Vector2(body.velocity.x, body.velocity.y /2);
+
+        if(onWall())
+        {
+            body.gravityScale = 0;
+            body.velocity = Vector2.zero;
+        }
+        else
+        {
+             body.gravityScale = 1.75f; // the origal gravity scale on boxcollider component
+             body.velocity = new Vector2(HorizontalInput * speed, body.velocity.y);
+        }
+
+        // TO DELETE
+        changeScene();
+    }
+
+    private void FormerJumpLogic()
+    {
         if (wallJumpCooldown > 0.2f)
         {
             body.velocity = new Vector2(HorizontalInput * speed, body.velocity.y);
@@ -70,9 +97,6 @@ public class PlayerMovement : MonoBehaviour
         }
         else
             wallJumpCooldown += Time.deltaTime;
-
-        // TO DELETE
-        changeScene();
     }
 
     private void Jump()
@@ -80,7 +104,8 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded())
         {  // normal jump
             body.velocity = new Vector2(body.velocity.x, jumpPower);
-            anim.SetTrigger("jump");
+            SoundManager.instance.PlaySound(jumpSound);  
+            //anim.SetTrigger("jump");
         }
         else if (onWall() && !isGrounded())
         {  // wall jump case
