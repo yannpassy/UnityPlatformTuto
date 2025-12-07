@@ -177,6 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   jumpPower: 11
+  coyoteMaxTime: 0.25
   groundLayer:
     serializedVersion: 2
     m_Bits: 256

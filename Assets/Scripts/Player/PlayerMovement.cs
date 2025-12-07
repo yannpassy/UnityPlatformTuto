@@ -8,9 +8,15 @@ using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D body;
-
+    [Header ("Movement Parameter")]
     [SerializeField] private float speed;
     [SerializeField] private float jumpPower;
+
+    [Header ("Coyote Time")]
+    [SerializeField] private float coyoteMaxTime; // the max time for the player can be in the air before jumping
+    private float coyoteTimeCounter; // how much time have passed since the player is in the air
+
+    [Header ("Layer")]
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask wallLayer;
 
@@ -64,6 +70,14 @@ public class PlayerMovement : MonoBehaviour
         {
              body.gravityScale = 1.75f; // the origal gravity scale on boxcollider component
              body.velocity = new Vector2(HorizontalInput * speed, body.velocity.y);
+
+            // Coyote logic
+            if (isGrounded())
+            {
+                coyoteTimeCounter = coyoteMaxTime; // reset coyote time
+            }
+            else
+                coyoteTimeCounter -= Time.deltaTime;
         }
 
         // TO DELETE
@@ -101,26 +115,57 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        if (isGrounded())
-        {  // normal jump
-            body.velocity = new Vector2(body.velocity.x, jumpPower);
-            SoundManager.instance.PlaySound(jumpSound);  
-            //anim.SetTrigger("jump");
+        if(coyoteTimeCounter <=0 && !onWall()) return; // if the player is in the air too much time, he cannot jump
+
+        SoundManager.instance.PlaySound(jumpSound);
+
+        if (onWall())
+        {
+            WallJump();
         }
-        else if (onWall() && !isGrounded())
-        {  // wall jump case
-            if (!isMoving())
-            {
-                body.velocity = new Vector2(-MathF.Sign(transform.localScale.x) * speed, 0);
-                transform.localScale = new Vector3(-Mathf.Sign(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        else
+        {
+            if (isGrounded())
+            {  
+                body.velocity= new Vector2(body.velocity.x, jumpPower);
             }
             else
-                body.velocity = new Vector2(-MathF.Sign(transform.localScale.x) * speed / 3, jumpPower / 2);
+            {
+                if(coyoteTimeCounter > 0)
+                {
+                   body.velocity= new Vector2(body.velocity.x, jumpPower); 
+                }
+            }
 
-            wallJumpCooldown = 0;
+            // prevent to make double coyote jump
+            coyoteTimeCounter = 0;
         }
+        
+        //  former jump logic 
+        // if (isGrounded())
+        // {  // normal jump
+        //     body.velocity = new Vector2(body.velocity.x, jumpPower);
+        //     //anim.SetTrigger("jump");
+        // }
+        // else if (onWall() && !isGrounded())
+        // {  // wall jump case
+        //     if (!isMoving())
+        //     {
+        //         body.velocity = new Vector2(-MathF.Sign(transform.localScale.x) * speed, 0);
+        //         transform.localScale = new Vector3(-Mathf.Sign(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        //     }
+        //     else
+        //         body.velocity = new Vector2(-MathF.Sign(transform.localScale.x) * speed / 3, jumpPower / 2);
+
+        //     wallJumpCooldown = 0;
+        // }
 
 
+    }
+
+    private void WallJump()
+    {
+        
     }
 
     private bool isMoving()
