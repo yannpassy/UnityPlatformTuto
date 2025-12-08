@@ -45,7 +45,7 @@ public class Health : MonoBehaviour
         {
             if (!dead)
             {
-                anim.SetTrigger("die");
+                
 
                 // Player
                 // if (GetComponent<PlayerMovement>() != null)
@@ -64,6 +64,9 @@ public class Health : MonoBehaviour
                     component.enabled =false;
                 }
 
+                anim.SetBool("grounded", true);
+                anim.SetTrigger("die");
+
                 dead = true;
                 SoundManager.instance.PlaySound(deathSound);
             }
@@ -73,7 +76,7 @@ public class Health : MonoBehaviour
 
     public void GainLife(float _value)
     {
-        currentHealth = Mathf.Clamp(currentHealth + _value, 0, maxHealth);
+        currentHealth = (!dead)?Mathf.Clamp(currentHealth + _value, 0, maxHealth):currentHealth;
     }
 
     // IEnumerator == asynchrone

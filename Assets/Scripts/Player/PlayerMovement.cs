@@ -13,8 +13,17 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpPower;
 
     [Header ("Coyote Time")]
-    [SerializeField] private float coyoteMaxTime; // the max time for the player can be in the air before jumping
+    [SerializeField] private float coyoteMaxTime = 1f; // the max time for the player can be in the air before jumping
     private float coyoteTimeCounter; // how much time have passed since the player is in the air
+
+    [Header ("Mutiple Jumps")]
+    [SerializeField] private int maxExtraJump;
+    private int jumpCounter;
+
+    [Header ("Wall Jumps")]
+    [SerializeField] private float wallJumpX; // how far you can go left or right after a wall jump
+    [SerializeField] private float wallJumpY; // how height you can go after a wall jump
+
 
     [Header ("Layer")]
     [SerializeField] private LayerMask groundLayer;
@@ -75,6 +84,7 @@ public class PlayerMovement : MonoBehaviour
             if (isGrounded())
             {
                 coyoteTimeCounter = coyoteMaxTime; // reset coyote time
+                jumpCounter = maxExtraJump; // reset extra jump
             }
             else
                 coyoteTimeCounter -= Time.deltaTime;
@@ -114,8 +124,8 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void Jump()
-    {
-        if(coyoteTimeCounter <=0 && !onWall()) return; // if the player is in the air too much time, he cannot jump
+    {   // if the player is in the air too much time and doesn't have extra jump, he cannot jump 
+        if(coyoteTimeCounter <=0 && !onWall() && jumpCounter<= 0) return; 
 
         SoundManager.instance.PlaySound(jumpSound);
 
@@ -134,6 +144,14 @@ public class PlayerMovement : MonoBehaviour
                 if(coyoteTimeCounter > 0)
                 {
                    body.velocity= new Vector2(body.velocity.x, jumpPower); 
+                }
+                else
+                {
+                    if (jumpCounter > 0)
+                    {
+                       body.velocity= new Vector2(body.velocity.x, jumpPower);
+                       jumpCounter --;
+                    }
                 }
             }
 
@@ -165,7 +183,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void WallJump()
     {
-        
+        body.AddForce(new Vector2(-Mathf.Sign(transform.localScale.x)*wallJumpX, wallJumpY));
+        wallJumpCooldown = 0;
     }
 
     private bool isMoving()
