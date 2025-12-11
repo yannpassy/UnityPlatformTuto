@@ -45,8 +45,6 @@ public class Health : MonoBehaviour
         {
             if (!dead)
             {
-                
-
                 // Player
                 // if (GetComponent<PlayerMovement>() != null)
                 //     GetComponent<PlayerMovement>().enabled = false;
@@ -77,6 +75,20 @@ public class Health : MonoBehaviour
     public void GainLife(float _value)
     {
         currentHealth = (!dead)?Mathf.Clamp(currentHealth + _value, 0, maxHealth):currentHealth;
+    }
+
+    public void Ressurect()
+    {
+        dead = false;
+        GainLife(maxHealth);
+        anim.ResetTrigger("die");
+        anim.Play("idle");
+        StartCoroutine(Invunerability()); // the player is invunerable after ressurect
+        // activate all atached components class
+        foreach(Behaviour component in components)
+        {
+            component.enabled =true;
+        }
     }
 
     // IEnumerator == asynchrone

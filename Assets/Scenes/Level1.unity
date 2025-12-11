@@ -5038,7 +5038,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1031159712}
   m_Layer: 0
-  m_Name: HeartsCollectibles
+  m_Name: HeartsAndCheckpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5059,6 +5059,7 @@ Transform:
   m_Children:
   - {fileID: 538684908}
   - {fileID: 2131577072}
+  - {fileID: 2269344695240384020}
   m_Father: {fileID: 2058268477}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1049293634
@@ -10832,6 +10833,68 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da410b7cd5d6381428ee0a16b6dd9444, type: 3}
+--- !u!1001 &2269344695240384017
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1031159712}
+    m_Modifications:
+    - target: {fileID: 850772094430216968, guid: 2acc63cc87452214b8d5c00f49bcb3f7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.6361408
+      objectReference: {fileID: 0}
+    - target: {fileID: 850772094430216968, guid: 2acc63cc87452214b8d5c00f49bcb3f7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.1222095
+      objectReference: {fileID: 0}
+    - target: {fileID: 850772094430216968, guid: 2acc63cc87452214b8d5c00f49bcb3f7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.040400572
+      objectReference: {fileID: 0}
+    - target: {fileID: 850772094430216968, guid: 2acc63cc87452214b8d5c00f49bcb3f7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 850772094430216968, guid: 2acc63cc87452214b8d5c00f49bcb3f7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 850772094430216968, guid: 2acc63cc87452214b8d5c00f49bcb3f7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 850772094430216968, guid: 2acc63cc87452214b8d5c00f49bcb3f7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 850772094430216968, guid: 2acc63cc87452214b8d5c00f49bcb3f7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 850772094430216968, guid: 2acc63cc87452214b8d5c00f49bcb3f7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 850772094430216968, guid: 2acc63cc87452214b8d5c00f49bcb3f7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6971509340125187335, guid: 2acc63cc87452214b8d5c00f49bcb3f7, type: 3}
+      propertyPath: m_Name
+      value: Checkpoint
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2acc63cc87452214b8d5c00f49bcb3f7, type: 3}
+--- !u!4 &2269344695240384020 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 850772094430216968, guid: 2acc63cc87452214b8d5c00f49bcb3f7, type: 3}
+  m_PrefabInstance: {fileID: 2269344695240384017}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2623334412187387410
 PrefabInstance:
   m_ObjectHideFlags: 0
