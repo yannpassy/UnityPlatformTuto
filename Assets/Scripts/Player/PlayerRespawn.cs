@@ -22,6 +22,7 @@ public class PlayerRespawn : MonoBehaviour
         if(currentCheckpoint == null)
         {
             // Show game over screen
+            uiManager.GameOver();
 
             return;
         }
