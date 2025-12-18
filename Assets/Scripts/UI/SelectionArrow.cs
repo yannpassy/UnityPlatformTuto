@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class SelectionArrow : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private RectTransform[] options;
+    [SerializeField] private AudioClip changeSound; // sound when the arrow change position
+    [SerializeField] private AudioClip OptionSelectedSound; // sound when an option is selected
+    private RectTransform rect;
+    private int currentPosition;
+
+    private void Awake() 
     {
-        
+        rect = GetComponent<RectTransform>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void ChangePosition(int _change)
     {
-        
+        currentPosition += _change;
+
+        if(currentPosition < 0)
+        {
+            currentPosition = options.Length -1;
+        }
+        else if(currentPosition > options.Length - 1)
+        {
+            currentPosition = 0;
+        }
+
+        rect.position = new Vector3(rect.position.x, options[currentPosition].position.y, 0);
     }
 }

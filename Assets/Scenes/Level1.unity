@@ -4379,8 +4379,8 @@ RectTransform:
   m_Children:
   - {fileID: 1450244828}
   - {fileID: 1913397444}
-  - {fileID: 1707787836}
   - {fileID: 895582855}
+  - {fileID: 1707787836}
   m_Father: {fileID: 2103658227}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -4569,6 +4569,7 @@ GameObject:
   - component: {fileID: 895582858}
   - component: {fileID: 895582857}
   - component: {fileID: 895582856}
+  - component: {fileID: 895582860}
   m_Layer: 5
   m_Name: SelectionArrow
   m_TagString: Untagged
@@ -4663,6 +4664,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 895582854}
   m_CullTransparentMesh: 1
+--- !u!114 &895582860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895582854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8efe9b95fa69c4b4499006a225b5189b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  options:
+  - {fileID: 1404426813}
+  - {fileID: 587106974}
+  - {fileID: 1124768570}
+  changeSound: {fileID: 0}
+  OptionSelectedSound: {fileID: 0}
 --- !u!1 &904663103
 GameObject:
   m_ObjectHideFlags: 0
