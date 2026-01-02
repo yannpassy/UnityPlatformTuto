@@ -5,14 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class UiManager : MonoBehaviour
 {
+    [Header ("GameOver")]
     [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private AudioClip gameOverSound;
-
+    
+    [Header ("Pause")]
+    [SerializeField] private GameObject pauseScreen;
 
     private void Awake() 
     {
         gameOverScreen.SetActive(false);
+        pauseScreen.SetActive(false);
     }
+
+    #region Game Over
     public void GameOver()
     {
         gameOverScreen.SetActive(true);
@@ -34,6 +40,28 @@ public class UiManager : MonoBehaviour
     public void Quit()
     {
         Application.Quit(); // quit the game (only works on build)
-        UnityEditor.EditorApplication.isPlaying = false;  // exits play mode
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;  // exits play mode (this code will be only executed on the editor)
+        #endif
     }
+    #endregion
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            // if pause screen is active
+            if(pauseScreen.activeInHierarchy)
+                PauseGame(false);
+            else
+                PauseGame(true);
+        }
+    }
+
+    #region Pause
+    private void PauseGame(bool _status)
+    {
+        pauseScreen.SetActive(_status);
+    }
+    #endregion
 }
