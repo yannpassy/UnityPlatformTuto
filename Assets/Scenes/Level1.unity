@@ -1151,6 +1151,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &234963854 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2107161468101067242, guid: da410b7cd5d6381428ee0a16b6dd9444, type: 3}
+  m_PrefabInstance: {fileID: 3217733165356599034}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &243368254
 GameObject:
   m_ObjectHideFlags: 0
@@ -1235,6 +1240,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &245044914 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2107161468101067242, guid: da410b7cd5d6381428ee0a16b6dd9444, type: 3}
+  m_PrefabInstance: {fileID: 5101398310756603098}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &259404954
 GameObject:
   m_ObjectHideFlags: 0
@@ -1321,7 +1331,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2103658228}
         m_TargetAssemblyTypeName: UiManager, Assembly-CSharp
-        m_MethodName: Restart
+        m_MethodName: SoundVolume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1655,6 +1665,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &285025937 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2107161468101067242, guid: da410b7cd5d6381428ee0a16b6dd9444, type: 3}
+  m_PrefabInstance: {fileID: 3674210511685435335}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &311168033
 GameObject:
   m_ObjectHideFlags: 0
@@ -1739,6 +1754,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &342104736 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2107161468101067242, guid: da410b7cd5d6381428ee0a16b6dd9444, type: 3}
+  m_PrefabInstance: {fileID: 7215348542501404419}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &365658431
 GameObject:
   m_ObjectHideFlags: 0
@@ -3217,6 +3237,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5839839141116705536, guid: da410b7cd5d6381428ee0a16b6dd9444, type: 3}
   m_PrefabInstance: {fileID: 7215348542501404419}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &602584867 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2107161468101067242, guid: da410b7cd5d6381428ee0a16b6dd9444, type: 3}
+  m_PrefabInstance: {fileID: 7919525831425310851}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &608294751
 GameObject:
   m_ObjectHideFlags: 0
@@ -3303,8 +3328,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2103658228}
         m_TargetAssemblyTypeName: UiManager, Assembly-CSharp
-        m_MethodName: Restart
-        m_Mode: 1
+        m_MethodName: PauseGame
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7210,6 +7235,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1183157434 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2107161468101067242, guid: da410b7cd5d6381428ee0a16b6dd9444, type: 3}
+  m_PrefabInstance: {fileID: 1867573150485115240}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1231835035
 GameObject:
   m_ObjectHideFlags: 0
@@ -7294,6 +7324,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1240200724 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2107161468101067242, guid: da410b7cd5d6381428ee0a16b6dd9444, type: 3}
+  m_PrefabInstance: {fileID: 8417437938173099328}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1256149662
 GameObject:
   m_ObjectHideFlags: 0
@@ -9049,7 +9084,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2103658228}
         m_TargetAssemblyTypeName: UiManager, Assembly-CSharp
-        m_MethodName: Restart
+        m_MethodName: MusicVolume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9385,6 +9420,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.56032753, y: 6.88705}
   m_EdgeRadius: 0
+--- !u!1 &1526122514 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2107161468101067242, guid: da410b7cd5d6381428ee0a16b6dd9444, type: 3}
+  m_PrefabInstance: {fileID: 1597082871988098665}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1556732672
 GameObject:
   m_ObjectHideFlags: 0
@@ -11654,6 +11694,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2017393645 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2107161468101067242, guid: da410b7cd5d6381428ee0a16b6dd9444, type: 3}
+  m_PrefabInstance: {fileID: 9080160964150228050}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2020340080
 GameObject:
   m_ObjectHideFlags: 0
@@ -12660,6 +12705,11 @@ MonoBehaviour:
   gameOverScreen: {fileID: 867127808}
   gameOverSound: {fileID: 8300000, guid: b6b7e78e89c19a84cb728636c97295fc, type: 3}
   pauseScreen: {fileID: 624271619}
+--- !u!1 &2112767123 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2107161468101067242, guid: da410b7cd5d6381428ee0a16b6dd9444, type: 3}
+  m_PrefabInstance: {fileID: 6532366185248478890}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2131577072 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2970596274194082232, guid: 34caa8f3ccf84484da6e1433712dca57, type: 3}
@@ -13328,6 +13378,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4878154064721665109, guid: 08494ce02c0c1b94bb45dc69191298bf, type: 3}
+      propertyPath: fireballs.Array.data[0]
+      value: 
+      objectReference: {fileID: 2112767123}
+    - target: {fileID: 4878154064721665109, guid: 08494ce02c0c1b94bb45dc69191298bf, type: 3}
+      propertyPath: fireballs.Array.data[1]
+      value: 
+      objectReference: {fileID: 1240200724}
+    - target: {fileID: 4878154064721665109, guid: 08494ce02c0c1b94bb45dc69191298bf, type: 3}
+      propertyPath: fireballs.Array.data[2]
+      value: 
+      objectReference: {fileID: 1183157434}
+    - target: {fileID: 4878154064721665109, guid: 08494ce02c0c1b94bb45dc69191298bf, type: 3}
+      propertyPath: fireballs.Array.data[3]
+      value: 
+      objectReference: {fileID: 285025937}
+    - target: {fileID: 4878154064721665109, guid: 08494ce02c0c1b94bb45dc69191298bf, type: 3}
+      propertyPath: fireballs.Array.data[4]
+      value: 
+      objectReference: {fileID: 342104736}
+    - target: {fileID: 4878154064721665109, guid: 08494ce02c0c1b94bb45dc69191298bf, type: 3}
+      propertyPath: fireballs.Array.data[5]
+      value: 
+      objectReference: {fileID: 2017393645}
+    - target: {fileID: 4878154064721665109, guid: 08494ce02c0c1b94bb45dc69191298bf, type: 3}
+      propertyPath: fireballs.Array.data[6]
+      value: 
+      objectReference: {fileID: 245044914}
+    - target: {fileID: 4878154064721665109, guid: 08494ce02c0c1b94bb45dc69191298bf, type: 3}
+      propertyPath: fireballs.Array.data[7]
+      value: 
+      objectReference: {fileID: 234963854}
+    - target: {fileID: 4878154064721665109, guid: 08494ce02c0c1b94bb45dc69191298bf, type: 3}
+      propertyPath: fireballs.Array.data[8]
+      value: 
+      objectReference: {fileID: 1526122514}
+    - target: {fileID: 4878154064721665109, guid: 08494ce02c0c1b94bb45dc69191298bf, type: 3}
+      propertyPath: fireballs.Array.data[9]
+      value: 
+      objectReference: {fileID: 602584867}
     - target: {fileID: 6505820742051469099, guid: 08494ce02c0c1b94bb45dc69191298bf, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.86

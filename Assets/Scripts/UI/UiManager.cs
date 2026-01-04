@@ -48,7 +48,7 @@ public class UiManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             // if pause screen is active
             if(pauseScreen.activeInHierarchy)
@@ -59,9 +59,25 @@ public class UiManager : MonoBehaviour
     }
 
     #region Pause
-    private void PauseGame(bool _status)
+    public void PauseGame(bool _status)
     {
         pauseScreen.SetActive(_status);
+
+        //Time.timeScale (0 = stop, 0.5 = slow motion, 1 = normal speed, 2 = twice faster than normal, etc)
+        if(_status)
+            Time.timeScale = 0; // pause the game
+        else
+            Time.timeScale = 1; // put the  game at the normal speed
+    }
+
+    public void SoundVolume()
+    {
+        SoundManager.instance.ChangeSoundVolume(0.2f);
+    }
+
+    public void MusicVolume()
+    {
+        SoundManager.instance.ChangeMusicVolume(0.2f);
     }
     #endregion
 }
