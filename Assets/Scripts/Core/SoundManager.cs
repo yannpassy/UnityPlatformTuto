@@ -13,11 +13,7 @@ public class SoundManager : MonoBehaviour
     {
         
         soundSource = GetComponent<AudioSource>();
-        musicSource = transform.GetChild(0).GetComponent<AudioSource>();
-
-        // init currentVolume in PlayerPrefs
-        PlayerPrefs.SetFloat("soundVolume", 1); 
-        PlayerPrefs.SetFloat("musicVolume", 1); 
+        musicSource = transform.GetChild(0).GetComponent<AudioSource>(); 
 
         if(instance == null)
         {
@@ -38,29 +34,45 @@ public class SoundManager : MonoBehaviour
         soundSource.PlayOneShot(_sound);
     }
 
-    public void ChangeSoundVolume(float _change)
+    private void ChangeSourceVolume(AudioSource _source,string _volumeName, float _change)
     {
-        float currentVolume = PlayerPrefs.GetFloat("soundVolume") + _change;
+        float currentVolume = PlayerPrefs.GetFloat(_volumeName, 1) + _change;
 
         if(currentVolume >1)
             currentVolume = 0;
         else if(currentVolume <0)
             currentVolume = 1;
 
-        soundSource.volume = currentVolume;
-        PlayerPrefs.SetFloat("soundVolume", currentVolume); 
+        _source.volume = currentVolume;
+        PlayerPrefs.SetFloat(_volumeName, currentVolume);
+
+    }
+    public void ChangeSoundVolume(float _change)
+    {
+        // float currentVolume = PlayerPrefs.GetFloat("soundVolume", 1) + _change;
+
+        // if(currentVolume >1)
+        //     currentVolume = 0;
+        // else if(currentVolume <0)
+        //     currentVolume = 1;
+
+        // soundSource.volume = currentVolume;
+        // PlayerPrefs.SetFloat("soundVolume", currentVolume); 
+
+        ChangeSourceVolume(soundSource, "soundVolume", _change);
     }
 
     public void ChangeMusicVolume(float _change)
     {
-        float currentVolume = PlayerPrefs.GetFloat("musicVolume")  + _change;
+    //     float currentVolume = PlayerPrefs.GetFloat("musicVolume", 1)  + _change;
 
-        if(currentVolume >1)
-            currentVolume = 0;
-        else if(currentVolume <0)
-            currentVolume = 1;
+    //     if(currentVolume >1)
+    //         currentVolume = 0;
+    //     else if(currentVolume <0)
+    //         currentVolume = 1;
 
-        musicSource.volume = currentVolume;
-        PlayerPrefs.SetFloat("musicVolume", currentVolume); 
+    //     musicSource.volume = currentVolume;
+    //     PlayerPrefs.SetFloat("musicVolume", currentVolume); 
+        ChangeSourceVolume(musicSource, "musicVolume", _change);
     }
 }
